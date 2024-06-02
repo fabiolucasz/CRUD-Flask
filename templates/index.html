@@ -5,56 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Homepage</a>
+            <a class="navbar-brand" href="/">Homepage</a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/admin/">Login</a>
+                        <a class="nav-link" href="/registro">Candidate-se</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
                     </li>
                 </ul>
             </div>
         </nav>
         <div class="row mt-5">
             <div class="col-md-6 offset-md-3">
-                <form action="/cadastrar" method="post" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label for="nome">Nome Completo*</label>
-                        <input type="text" class="form-control" id="nome" name="nome" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="idade">Idade*</label>
-                        <input type="number" class="form-control" id="idade" name="idade" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email*</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="escolaridade">Escolaridade*</label>
-                        <select class="form-control" id="escolaridade" name="escolaridade" required>
-                            <option value="">Selecione...</option>
-                            <option value="ensino_fundamental">Ensino Fundamental</option>
-                            <option value="ensino_medio_incompleto">Ensino Médio Incompleto</option>
-                            <option value="ensino_medio_completo">Ensino Médio Completo</option>
-                            <option value="nivel_tecnico">Nível Técnico</option>
-                            <option value="ensino_superior">Ensino Superior Incompleto</option>
-                            <option value="ensino_superior">Ensino Superior</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="whatsapp">WhatsApp*</label>
-                        <input type="tel" class="form-control" id="whatsapp" name="whatsapp" pattern="{11,}" placeholder="5521900000000" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="anexo">Anexar Currículo*</label>
-                        <input type="file" class="form-control-file" id="anexo" name="anexo" accept=".pdf" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Cadastrar</button>
-                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="/login">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Senha</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
